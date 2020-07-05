@@ -10,7 +10,7 @@ import seaborn as sns
 def main():
     
     # load data 
-    df = pd.read_csv("./../vulnerable_robot_challenge.csv")
+    df = pd.read_csv("./../data/vulnerable_robot_challenge.csv")
 
     # print info, describe head
     print(df.head())
@@ -29,10 +29,19 @@ def main():
     plt.show()
 
     # pairplot to see for any obvious patterns
-    ax = plt.figure(figsize=(10,5))
-    ax = sns.pairplot(df, hue="flag")
-    plt.show()
-
+    #sns.pairplot(df, hue="flag")
+    #plt.show()
+    
+    # check data distribution for +1 flag 
+    df_one = df[df["flag"]==1]
+    print(df_one.info())
+    print(df_one.describe())    
+    
+    # check data distribution for 0 flag 
+    df_zero = df[df["flag"]==0]
+    print(df_zero.info())
+    print(df_zero.describe())    
+    
     return 0
 
 
