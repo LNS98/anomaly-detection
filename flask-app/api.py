@@ -6,6 +6,7 @@ from flask import abort, Flask, jsonify, make_response, request
 import pandas as pd
 from model import Model
 
+# model from the model class
 MODEL = Model()
 
 app = Flask(__name__)
@@ -18,7 +19,9 @@ def predict():
     """
     
     try:        
+        # make the data into a df
         df_X = pd.DataFrame(request.json)
+        # predict on the data
         prediction = MODEL.predict(df_X).tolist()
         
         return make_response(jsonify({'prediction': prediction}))

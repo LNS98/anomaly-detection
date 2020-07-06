@@ -1,5 +1,5 @@
 """
-Quick investigation of the data.
+Initial investigation of the data.
 """
 
 import numpy as np 
