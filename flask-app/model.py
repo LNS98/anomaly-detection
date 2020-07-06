@@ -175,7 +175,7 @@ class Model:
         Fit clustering to the selected dataset.
 
         Args:
-            df: Dataset on which to perform the dataset.
+            df: Dataframe on which to fit the clusters
             features: Features selected from the dataset on which to fit k-means.
         """
         # keep only the selected features
@@ -190,6 +190,11 @@ class Model:
     def evaluate_clusters(self, y, features, verbose=False):
         """
         Evaluate the clusters using the target dataset flag.
+
+        Args:
+            y: Labels for evaluation.
+            features: Features used in the clustering fit.
+            verbose: Used to print the accuracy on the clusters.
         """
         # get the predicted labes 
         pred_clust = self.kmeans.labels_
@@ -285,22 +290,4 @@ class Model:
 
         return self.kmeans.predict(df)
 
-
-if __name__ == "__main__":
-
-    model = Model()
-    
-    model.train_and_evaluate("../data/vulnerable_robot_challenge.csv", verbose=True)
-
-    # ---- try load path ---------- 
-    
-    # prepare the data 
-    #df = pd.read_csv("../data/vulnerable_robot_challenge.csv") 
-    # load the data
-    #model.load_model()
-    # predict 
-    #new_data = model.predict(df)
-    #print(new_data)
-    #print((new_data == 0).sum())
-    #print((new_data == 1).sum())
 
