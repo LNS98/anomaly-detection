@@ -29,7 +29,7 @@ A brief explanation of the important files:
 To activate App:
     
     - Run `sh build_app.sh` and wait for Docker container to start running.
-    - The app can be tested by running `sh /flask-app/tests/test_app.sh` which run a sample to the back-end. A prediction is returned when running this command. 
+    - The app can be tested by running `sh /flask-app/tests/test_app.sh` which runs a sample to the back-end. A prediction is returned when running this command. 
 
 Both files in the scripts folder can be run by running `python name_of_file.py`. NOTE: for this to run one has to have all the modules from the `/flask-app/requirements.txt` file installed.
 
@@ -63,7 +63,6 @@ When running the evaluation model, what was confirmed was the original intuition
 The final model was then refactored in a object-oriented way and made into a class. This makes the model much more usable for production purposes such that methods, for example for predicting, can be easily called from the class. Flask was used to create the back-end for the app as it is one of the most widely used frameworks built for the python language. In the main api file, a 'predict' function is used to POST predicitions made from the model after data, fed in JSON format, is posted to the app.
 The app is built using docker, such that is can be easily deployed and built. To build the app one can simply run the shell comand found in the home of the directory.
 
-### testing 
-The app is tested some sample data taken from the original dataset and converted into a JSON format. 
-NOTE: more tests should be made to make sure the app performs robustly against different inputs.
+### Testing 
+The app is tested some sample data taken from the original dataset and converted into a JSON format. More tests should be done in the future to make sure the app performs robustly against different inputs.
 
